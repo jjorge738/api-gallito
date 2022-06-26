@@ -112,10 +112,23 @@ def fake_save_user(user_in: UserIn):
     print("User saved! ..not really")
     return user_in_db
 
+def get_user(name:str):
+    print(name)
+
+    return {
+        "name":"Test",
+        "email":"jj@email.com"
+    }
+
 @app.post("/user/", response_model=UserOut)
 async def create_user(user_in: UserIn):
     user_saved = fake_save_user(user_in)
     return user_saved
+
+@app.get("/user", response_model=UserOut)
+async def create_user(name:str):
+    
+    return get_user(name)
 
 @app.get("/")
 async def read_root():
