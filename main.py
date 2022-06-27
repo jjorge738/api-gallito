@@ -51,7 +51,6 @@ class Item(BaseModel):
     is_offer: Optional[bool] = Field(...,Example="False",title="Oferta del producto",description="Validacion si esta en oferta.")
     tags: List[str] = []
     image: Optional[Image] = None
-    #images: List[Images] #Parametro Obligatorio
     images: Optional[List[Images]] #Parametro Opcional
 
     class Config:
